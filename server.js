@@ -3,7 +3,8 @@ const app=exp();
 const path = require("path")
 const bodyParser = require("body-parser");
 const mongoClient=require("mongodb").MongoClient;
-
+require("dotenv").config();
+const dbConnectionString= process.env.URL;
 
  app.use(bodyParser.json());
  app.use(bodyParser.urlencoded({ extended: false }));
@@ -17,7 +18,7 @@ app.get("/", (req, res) => {
   
 
 
-  const dbConnectionString="mongodb+srv://madhu:madhu@clusterbackend.szevd.mongodb.net/myfirstdb?retryWrites=true&w=majority"
+  
 
 //connect to DB
 mongoClient.connect(dbConnectionString)
