@@ -3,6 +3,8 @@ const app=exp();
 const path = require("path")
 const bodyParser = require("body-parser");
 const mongoClient=require("mongodb").MongoClient;
+
+
  app.use(bodyParser.json());
  app.use(bodyParser.urlencoded({ extended: false }));
  
@@ -23,7 +25,7 @@ mongoClient.connect(dbConnectionString)
   //create DB object
   const dbObj=client.db("techademy");
   //get collection object
-  const userCollectionObject=dbObj.collection("taskcollection")
+  const taskCollectionObject=dbObj.collection("taskcollection")
   //share userCollectionObj
   app.set("taskCollectionObject",taskCollectionObject)
   
